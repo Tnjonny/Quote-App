@@ -13,6 +13,11 @@ function newQuote() {
   } else {
     authorText.textContent = quote.author;
   }
+  if (quote.text.length > 50) {
+    quoteText.classList.add('long-quote');
+  } else {
+    quoteText.classList.remove('long-quote');
+  }
 
   quoteText.textContent = quote.text;
 }
@@ -25,5 +30,13 @@ async function getQuotes() {
     newQuote();
   } catch (error) {}
 }
+
+function tweetQuote() {
+  const twitterUrl = `https://twitter.com/intent/tweet?text=${quoteText.textContent} - ${authorText.textContent}`;
+  window.open(twitterUrl, '_blank');
+}
+
+newQuoteBtn.addEventListener('click', newQuote);
+TwitterBtn.addEventListener('click', tweetQuote);
 
 getQuotes();
