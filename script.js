@@ -3,8 +3,19 @@ const quoteText = document.getElementById('quote');
 const authorText = document.getElementById('author');
 const TwitterBtn = document.getElementById('twitter');
 const newQuoteBtn = document.getElementById('new-quote');
+const loader = document.getElementById('loader');
 
 let apiQuotes = [];
+
+function loading() {
+  loader.hidden = false;
+  quoteContainer.hidden = true;
+}
+
+function complete() {
+  quoteContainer.hidden = false;
+  loader.hidden = true;
+}
 
 function newQuote() {
   const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)];
