@@ -7,17 +7,17 @@ const loader = document.getElementById('loader');
 
 let apiQuotes = [];
 
-function loading() {
+loading = () => {
   loader.hidden = false;
   quoteContainer.hidden = true;
-}
+};
 
-function complete() {
+complete = () => {
   quoteContainer.hidden = false;
   loader.hidden = true;
-}
+};
 
-function newQuote() {
+newQuote = () => {
   loading();
 
   const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)];
@@ -34,7 +34,7 @@ function newQuote() {
 
   quoteText.textContent = quote.text;
   complete();
-}
+};
 
 async function getQuotes() {
   loading();
@@ -46,10 +46,10 @@ async function getQuotes() {
   } catch (error) {}
 }
 
-function tweetQuote() {
+tweetQuote = () => {
   const twitterUrl = `https://twitter.com/intent/tweet?text=${quoteText.textContent} - ${authorText.textContent}`;
   window.open(twitterUrl, '_blank');
-}
+};
 
 newQuoteBtn.addEventListener('click', newQuote);
 TwitterBtn.addEventListener('click', tweetQuote);
