@@ -18,6 +18,8 @@ function complete() {
 }
 
 function newQuote() {
+  loading();
+
   const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)];
   if (!quote.author) {
     authorText.textContent = 'Jon Doe';
@@ -31,9 +33,11 @@ function newQuote() {
   }
 
   quoteText.textContent = quote.text;
+  complete();
 }
 
 async function getQuotes() {
+  loading();
   const apiUrl = 'https://type.fit/api/quotes';
   try {
     const response = await fetch(apiUrl);
