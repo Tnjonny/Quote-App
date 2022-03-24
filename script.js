@@ -36,7 +36,7 @@ newQuote = () => {
   complete();
 };
 
-async function getQuotes() {
+const getQuotes = async () => {
   loading();
   const apiUrl = 'https://type.fit/api/quotes';
   try {
@@ -44,7 +44,7 @@ async function getQuotes() {
     apiQuotes = await response.json();
     newQuote();
   } catch (error) {}
-}
+};
 
 tweetQuote = () => {
   const twitterUrl = `https://twitter.com/intent/tweet?text=${quoteText.textContent} - ${authorText.textContent}`;
