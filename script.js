@@ -18,7 +18,7 @@ removeSpinner = () => {
 };
 
 newQuote = () => {
-  loading();
+  showLoadingSpinner();
 
   const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)];
   if (!quote.author) {
