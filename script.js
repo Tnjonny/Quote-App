@@ -37,7 +37,7 @@ newQuote = () => {
 };
 
 const getQuotes = async () => {
-  removeSpinner();
+  showLoadingSpinner();
   const apiUrl = 'https://type.fit/api/quotes';
   try {
     const response = await fetch(apiUrl);
